@@ -19,36 +19,15 @@ namespace ZooApp
         {
             if (!_veterinaryService.IsHealthy(animal))
             {
-                Console.WriteLine("Animal is unhealthy, it can't be added to the zoo.");
-                return;
+                throw new InvalidOperationException("Animal is unhealthy, it can't be added to the zoo.");
             }
 
-            try
-            {
-                _inventoryStorage.AddInventoryItem(animal);
-            }
-            catch (InvalidOperationException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            _inventoryStorage.AddInventoryItem(animal);
         }
 
-        public void AddInventoryItem(IInventory inventoryItem)
+        public void AddThing(Thing thing)
         {
-            if (inventoryItem is IAlive)
-            {
-                Console.WriteLine("It is an animal. This thing can't be added to the zoo. Use AddAnimal method.");
-                return;
-            }
-
-            try
-            {
-                _inventoryStorage.AddInventoryItem(inventoryItem);
-            }
-            catch (InvalidOperationException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            _inventoryStorage.AddInventoryItem(thing);
         }
 
         public List<Thing> GetThings()
@@ -65,5 +44,9 @@ namespace ZooApp
         {
             return GetAnimals().OfType<Herbo>().Where(herbo => _veterinaryService.IsFriendly(herbo)).ToList();
         }
+
+        public int GetAnimalsCount() => GetAnimals().Count;
+
+        public int GetTotalFoodPerDay() => GetAnimals().Sum(animal => animal.Food);
     }
 }

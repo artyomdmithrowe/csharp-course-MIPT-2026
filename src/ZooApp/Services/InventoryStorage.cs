@@ -6,7 +6,7 @@ namespace ZooApp
 {
     public class InventoryStorage : IInventoryStorage
     {
-        private List<IInventory> _inventoryItems = new List<IInventory>();
+        private readonly List<IInventory> _inventoryItems = new List<IInventory>();
 
         public void AddInventoryItem(IInventory inventoryItem)
         {

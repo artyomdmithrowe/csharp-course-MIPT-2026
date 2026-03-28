@@ -2,7 +2,7 @@ using System;
 
 namespace ZooApp
 {
-    public class Thing : IInventory
+    public abstract class Thing : IInventory
     {
         public int Number { get; }
 
@@ -14,6 +14,11 @@ namespace ZooApp
             }
 
             Number = number;
+        }
+
+        public override string ToString()
+        {
+            return $"{GetType().Name}, Number: {Number}";
         }
     }
 }
