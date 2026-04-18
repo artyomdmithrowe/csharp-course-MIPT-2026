@@ -14,7 +14,6 @@ public class Category
     public string Name
     {
         get => _name;
-
         private set
         {
             if (string.IsNullOrWhiteSpace(value))

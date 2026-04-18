@@ -21,12 +21,14 @@ public class Operation
     public decimal Amount
     {
         get => _amount;
-
         private set
         {
             if (value <= 0)
             {
-                throw new ArgumentException("Operation amount must be greater than zero.", nameof(value));
+                throw new ArgumentException(
+                    "Operation amount must be greater than zero.",
+                    nameof(value)
+                );
             }
 
             _amount = value;
@@ -36,7 +38,6 @@ public class Operation
     public string Description
     {
         get => _description;
-
         private set
         {
             if (value is null)
@@ -57,7 +58,8 @@ public class Operation
         CategoryId categoryId,
         decimal amount,
         DateTime date,
-        string? description = null)
+        string? description = null
+    )
     {
         Id = id;
         Type = type;
@@ -73,6 +75,6 @@ public class Operation
         Description = description;
     }
 
-    public override string ToString()
-        => $"{Type}: {Amount} | Account: {BankAccountId} | Category: {CategoryId} | Date: {Date:yyyy-MM-dd} | Description: {Description}";
+    public override string ToString() =>
+        $"{Type}: {Amount} | Account: {BankAccountId} | Category: {CategoryId} | Date: {Date:yyyy-MM-dd} | Description: {Description}";
 }

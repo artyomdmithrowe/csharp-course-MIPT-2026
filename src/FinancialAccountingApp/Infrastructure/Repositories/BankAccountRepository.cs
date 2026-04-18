@@ -21,7 +21,9 @@ public class BankAccountRepository : IBankAccountRepository
 
         if (index < 0)
         {
-            throw new InvalidOperationException($"Bank account with id {bankAccountId} was not found.");
+            throw new InvalidOperationException(
+                $"Bank account with id {bankAccountId} was not found."
+            );
         }
 
         _bankAccounts[index] = bankAccount;
@@ -33,7 +35,9 @@ public class BankAccountRepository : IBankAccountRepository
 
         if (index < 0)
         {
-            throw new InvalidOperationException($"Bank account with id {bankAccountId} was not found.");
+            throw new InvalidOperationException(
+                $"Bank account with id {bankAccountId} was not found."
+            );
         }
 
         _bankAccounts.RemoveAt(index);
