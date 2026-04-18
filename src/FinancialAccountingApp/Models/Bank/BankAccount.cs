@@ -12,7 +12,6 @@ public class BankAccount
     public string Name
     {
         get => _name;
-
         private set
         {
             if (string.IsNullOrWhiteSpace(value))
@@ -27,12 +26,14 @@ public class BankAccount
     public decimal Balance
     {
         get => _balance;
-
         private set
         {
             if (value < 0)
             {
-                throw new ArgumentException("Bank account balance cannot be negative.", nameof(value));
+                throw new ArgumentException(
+                    "Bank account balance cannot be negative.",
+                    nameof(value)
+                );
             }
 
             _balance = value;
@@ -52,7 +53,10 @@ public class BankAccount
     {
         if (amount <= 0)
         {
-            throw new ArgumentException("Deposit amount must be greater than zero.", nameof(amount));
+            throw new ArgumentException(
+                "Deposit amount must be greater than zero.",
+                nameof(amount)
+            );
         }
 
         Balance += amount;
@@ -62,7 +66,10 @@ public class BankAccount
     {
         if (amount <= 0)
         {
-            throw new ArgumentException("Withdraw amount must be greater than zero.", nameof(amount));
+            throw new ArgumentException(
+                "Withdraw amount must be greater than zero.",
+                nameof(amount)
+            );
         }
 
         Balance -= amount;

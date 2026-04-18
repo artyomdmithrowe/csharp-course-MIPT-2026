@@ -13,11 +13,12 @@ public class OperationFactory
         Category category,
         decimal amount,
         DateTime date,
-        string? description = null)
+        string? description = null
+    )
     {
         bool isCompatible =
-            (type == OperationType.Income && category.Type == CategoryType.Income) ||
-            (type == OperationType.Expense && category.Type == CategoryType.Expense);
+            (type == OperationType.Income && category.Type == CategoryType.Income)
+            || (type == OperationType.Expense && category.Type == CategoryType.Expense);
 
         if (!isCompatible)
         {
@@ -31,6 +32,7 @@ public class OperationFactory
             category.Id,
             amount,
             date,
-            description);
+            description
+        );
     }
 }
