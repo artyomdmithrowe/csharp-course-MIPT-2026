@@ -53,6 +53,8 @@ public class OperationRepository : IOperationRepository
 
     public IReadOnlyList<Operation> GetByPeriod(DateTime from, DateTime to)
     {
-        return _operations.Where(operation => operation.Date >= from && operation.Date <= to).ToList();
+        return _operations
+            .Where(operation => operation.Date >= from && operation.Date <= to)
+            .ToList();
     }
 }
