@@ -34,5 +34,5 @@ public class Category
 
     public void Rename(string name) => Name = name;
 
-    public override string ToString() => $"{Name} ({Type}) - {Id}";
+    public override string ToString() => $"{Name} ({Id}) - Type: {Type}";
 }
